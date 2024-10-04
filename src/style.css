@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.gif-search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  gap: 1rem;
+}
+
+input {
+  border-radius: 1rem;
+  width: 300px;
+  padding: 0.4rem 0.3rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+button {
+  padding: 0.3rem 0.8rem;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+label {
+  font-size: 1.3rem;
+}
