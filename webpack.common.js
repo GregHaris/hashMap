@@ -21,13 +21,6 @@ module.exports = {
       {
         test: /\.(?:js|mjs|cjs)$/,
         exclude: /node_modules/,
-        // use: {
-        //   loader: "babel-loader",
-        //   options: {
-        //     presets: [["@babel/preset-env", { targets: "defaults" }]],
-        //     plugins: ["@babel/plugin-proposal-class-properties"],
-        //   },
-        // },
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -55,10 +48,5 @@ module.exports = {
         use: ['html-loader'],
       },
     ],
-  },
-  resolve: {
-    alias: {
-      '@fullcalendar': path.resolve(__dirname, 'node_modules/@fullcalendar'),
-    },
   },
 };
