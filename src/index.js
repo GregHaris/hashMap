@@ -98,8 +98,15 @@ class HashMap {
     return `Key '${key}' not found`;
   }
 
+  // get the number of keys in the hash map
   length() {
     return this.size;
+  }
+
+  // clear the map
+  clear() {
+    this.buckets = new Array(this.buckets.length);
+    this.size = 0;
   }
 }
 
@@ -107,6 +114,7 @@ const map = new HashMap(50);
 
 map.set('bk001', 'The Count of Monte Cristo');
 map.set('bk002', 'The Vampire Diaries');
+map.clear();
 
 // console.log(map.remove('bk002'));
 console.log(map.length());
