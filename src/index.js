@@ -15,14 +15,27 @@ class HashMap {
     return hashCode;
   }
 
+  // add key values to buckets
   set(key, value) {
     let index = this.hash(key);
+    let i = 0;
 
+    //  if hashed bucket index doesn't exit, create it
     if (!this.buckets[index]) {
       this.buckets[index] = [];
     }
 
+    // check if there is collission. If true, replace the old with new
+    while (i < this.buckets[index].length) {
+      if (this.buckets[index][i][0] === key) {
+        this.buckets[index][i][0] = value;
+      }
+      i++;
+    }
+
+    // if false, add to the map
     this.buckets[index].push([key, value]);
+    this.size++;
   }
 
   get(key) {
