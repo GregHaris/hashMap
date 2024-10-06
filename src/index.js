@@ -3,6 +3,8 @@ class HashMap {
     this.buckets = new Array(size);
     this.size = size;
   }
+
+  // hash function
   hash(key) {
     let hashCode = 0;
     let i = 0;
@@ -53,13 +55,16 @@ class HashMap {
     return null;
   }
 
+  // check if key exists in the map
   has(key) {
     let index = this.hash(key);
 
+    // if it doesn't, return false
     if (!this.buckets[index]) {
       return false;
     }
 
+    // if it does, then return true
     for (let bucket of this.buckets[index]) {
       if (bucket[0] === key) {
         return true;
