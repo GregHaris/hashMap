@@ -108,13 +108,57 @@ class HashMap {
     this.buckets = new Array(this.buckets.length);
     this.size = 0;
   }
+
+  // get all keys in hash map
+  keys() {
+    let keys = [];
+    let allBucketsEmpty = true;
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      if (this.buckets[i]) {
+        allBucketsEmpty = false;
+        for (let bucket of this.buckets[i]) {
+          keys.push(bucket[0]);
+        }
+      }
+    }
+
+    if (allBucketsEmpty) {
+      return 'All Hash map bucket are empty';
+    }
+
+    return keys;
+  }
+
+  // get all values in hash map
+  values() {
+    let values = [];
+    let allBucketsEmpty = true;
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      if (this.buckets[i]) {
+        allBucketsEmpty = false;
+        for (let bucket of this.buckets[i]) {
+          values.push(bucket[1]);
+        }
+      }
+    }
+
+    if (allBucketsEmpty) {
+      return 'All Hash map bucket are empty';
+    }
+
+    return values;
+  }
 }
 
 const map = new HashMap(50);
 
 map.set('bk001', 'The Count of Monte Cristo');
 map.set('bk002', 'The Vampire Diaries');
-map.clear();
+// map.clear();
 
 // console.log(map.remove('bk002'));
 console.log(map.length());
+console.log(map.keys());
+console.log(map.values());
