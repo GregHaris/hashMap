@@ -109,7 +109,7 @@ class HashMap {
     this.size = 0;
   }
 
-  // get all keys in hash map
+  // get an array of all keys in hash map
   keys() {
     let keys = [];
     let allBucketsEmpty = true;
@@ -130,7 +130,7 @@ class HashMap {
     return keys;
   }
 
-  // get all values in hash map
+  // get an array of all values in hash map
   values() {
     let values = [];
     let allBucketsEmpty = true;
@@ -150,15 +150,25 @@ class HashMap {
 
     return values;
   }
+
+  // get an array of all key-value pairs in hash map
+  entries() {
+    let entries = [];
+    let allBucketsEmpty = true;
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      if (this.buckets[i]) {
+        allBucketsEmpty = false;
+        for (let bucket of this.buckets[i]) {
+          entries.push(bucket);
+        }
+      }
+    }
+
+    if (allBucketsEmpty) {
+      return 'All Hashmap bucket are empty';
+    }
+
+    return entries;
+  }
 }
-
-const map = new HashMap(50);
-
-map.set('bk001', 'The Count of Monte Cristo');
-map.set('bk002', 'The Vampire Diaries');
-// map.clear();
-
-// console.log(map.remove('bk002'));
-console.log(map.length());
-console.log(map.keys());
-console.log(map.values());
