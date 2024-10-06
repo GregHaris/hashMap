@@ -1,4 +1,4 @@
-export default class HashMap {
+export default class Hashset {
   constructor(size = 50) {
     this.buckets = new Array(size);
     this.size = 0;
