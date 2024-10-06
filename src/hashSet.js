@@ -19,7 +19,7 @@ export default class Hashset {
   }
 
   // add key values to buckets
-  set(key) {
+  add(key) {
     let index = this.hash(key);
     let i = 0;
 
