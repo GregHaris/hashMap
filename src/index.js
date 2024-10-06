@@ -90,7 +90,7 @@ class HashMap {
 
         this.size--;
 
-        return `key '${key}' and its hashes has been deleted`;
+        return `key '${key}' and its hashes has been successfully deleted`;
       }
       i++;
     }
@@ -104,4 +104,4 @@ const map = new HashMap(50);
 map.set('bk001', 'The Count of Monte Cristo');
 map.set('bk002', 'The Vampire Diaries');
 
-console.log(map.get('bk002'));
+console.log(map.remove('bk002'));
