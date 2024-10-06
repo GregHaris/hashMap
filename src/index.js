@@ -39,4 +39,19 @@ class HashMap {
     }
     return null;
   }
+
+  has(key) {
+    let index = this.hash(key);
+
+    if (!this.buckets[index]) {
+      return false;
+    }
+
+    for (let bucket of this.buckets[index]) {
+      if (bucket[0] === key) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
