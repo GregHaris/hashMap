@@ -97,6 +97,10 @@ class HashMap {
 
     return `Key '${key}' not found`;
   }
+
+  length() {
+    return this.size;
+  }
 }
 
 const map = new HashMap(50);
@@ -104,4 +108,5 @@ const map = new HashMap(50);
 map.set('bk001', 'The Count of Monte Cristo');
 map.set('bk002', 'The Vampire Diaries');
 
-console.log(map.remove('bk002'));
+// console.log(map.remove('bk002'));
+console.log(map.length());
