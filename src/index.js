@@ -1,7 +1,7 @@
 class HashMap {
   constructor(size = 50) {
     this.buckets = new Array(size);
-    this.size = size;
+    this.size = 0;
   }
 
   // hash function
@@ -11,7 +11,8 @@ class HashMap {
 
     const primeNumber = 31;
     while (i < key.length) {
-      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.size;
+      hashCode =
+        (primeNumber * hashCode + key.charCodeAt(i)) % this.buckets.length;
       i++;
     }
     return hashCode;
@@ -30,7 +31,8 @@ class HashMap {
     // check if there is collission. If true, replace the old with new
     while (i < this.buckets[index].length) {
       if (this.buckets[index][i][0] === key) {
-        this.buckets[index][i][0] = value;
+        this.buckets[index][i][1] = value;
+        return;
       }
       i++;
     }
@@ -59,7 +61,6 @@ class HashMap {
   has(key) {
     let index = this.hash(key);
 
-    // if it doesn't, return false
     if (!this.buckets[index]) {
       return false;
     }
@@ -72,4 +73,35 @@ class HashMap {
     }
     return false;
   }
+
+  //  delete a hash element
+  remove(key) {
+    let index = this.hash(key);
+    let i = 0;
+
+    if (!this.buckets[index]) {
+      return `Key '${key}' not found`;
+    }
+
+    // if it does, delete then return true
+    while (i < this.buckets[index].length) {
+      if (this.buckets[index][i][0] === key) {
+        this.buckets[index].splice(i, 1);
+
+        this.size--;
+
+        return `key '${key}' and its hashes has been deleted`;
+      }
+      i++;
+    }
+
+    return `Key '${key}' not found`;
+  }
 }
+
+const map = new HashMap(50);
+
+map.set('bk001', 'The Count of Monte Cristo');
+map.set('bk002', 'The Vampire Diaries');
+
+console.log(map.get('bk002'));
