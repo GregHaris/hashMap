@@ -14,4 +14,29 @@ class HashMap {
     }
     return hashCode;
   }
+
+  set(key, value) {
+    let index = this.hash(key);
+
+    if (!this.buckets[index]) {
+      this.buckets[index] = [];
+    }
+
+    this.buckets[index].push([key, value]);
+  }
+
+  get(key) {
+    let index = this.hash(key);
+
+    if (!this.buckets[index]) {
+      return null;
+    }
+
+    for (let bucket of this.buckets[index]) {
+      if (bucket[0] === key) {
+        return bucket[1];
+      }
+    }
+    return null;
+  }
 }
