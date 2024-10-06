@@ -30,8 +30,8 @@ export default class Hashset {
 
     // check if there is collission. If true, replace the old with new
     while (i < this.buckets[index].length) {
-      if (this.buckets[index][i][0] === key) {
-        this.buckets[index][i] = key;
+      if (this.buckets[index][i] === key) {
+        this.buckets[index] = key;
         return;
       }
       i++;
